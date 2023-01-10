@@ -63,7 +63,7 @@ const createPayment = async (req, res, next) => {
           quantity: 1,
         },
       ],
-      success_url: `${process.env.CLIENT_URL}ticket`,
+      success_url: "http://meu-ingresso.com/ticket",
       cancel_url: `${process.env.CLIENT_URL}`,
     });
     res.json({ url: session.url, status: true });
@@ -72,9 +72,16 @@ const createPayment = async (req, res, next) => {
     res.status(500).json({ error: e.message, status: false });
   }
 };
-
+const deploy = async (req, res, next) => {
+  try {
+    res.status(200).send("deploy!");
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
 module.exports = {
   getAllMySales,
   getAdmAuth,
   createPayment,
+  deploy,
 };

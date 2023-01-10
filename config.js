@@ -24,7 +24,7 @@ assert(PORT, "PORT is required");
 assert(HOST, "HOST is required");
 
 module.exports = {
-  port: PORT,
+  port: PORT || "8080",
   host: HOST,
   url: HOST_URL,
   firebaseConfig: {

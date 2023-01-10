@@ -33,9 +33,12 @@ const {
   getAllMySales,
   getAdmAuth,
   createPayment,
+  deploy,
 } = require("../controllers/generalController");
 
 const router = express.Router();
+
+router.post("/", deploy);
 
 router.post("/createPayment", createPayment);
 router.get("/getAllMySales/:id", checkIntegrity, getAllMySales);
