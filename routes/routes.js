@@ -28,6 +28,8 @@ const {
   getTicketToBurn,
   updateTicketStatus,
   getTicketId,
+  getAllTkts,
+  getTicketInvalid,
 } = require("../controllers/ticketController");
 const {
   getAllMySales,
@@ -65,9 +67,12 @@ router.post("/addTicket", addTicket);
 router.get("/getTicketsToSave/:id", getTicketsToSave);
 router.get("/getTicket/:id", getTicket);
 router.get("/getTicketId/:id", getTicketId);
-router.get("/getTicketToBurn/:id", checkIntegrity, getTicketToBurn);
+router.get("/getTicketToBurn/:id", getTicketToBurn);
 router.put("/updateTicket/:id", checkIntegrity, updateTicket);
 router.put("/updateTicketStatus/:id", updateTicketStatus);
+router.get("/getTicketInvalid", getTicketInvalid);
+
+// router.get("/getAllTkts", getAllTkts);
 
 module.exports = {
   routes: router,
